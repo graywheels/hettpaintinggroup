@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Ridge Contracting - Professional Construction Services</title>
+    
+    <!-- Embedded CSS Styles -->
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent-color: #686156;
+            --white: #ffffff;
+            --black: #000000;
+            --light-gray: #f4f4f4;
+            --text-gray: #333333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        /* ==================== NAVIGATION BAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 70px; /* Account for fixed navbar */
+            height: 90vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                              url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        /* Replace the background-image URL above with your company's best project image */
+
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            max-width: 550px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateX(-50px);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* ==================== WHY CHOOSE US SECTION ==================== */
+        .why-choose {
+            padding: 5rem 5%;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 3rem;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ==================== CONTACT FORM SECTION ==================== */
+        .contact-section {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: 2px solid var(--accent-color);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* ==================== PROJECTS SLIDESHOW SECTION ==================== */
+        .projects-section {
+            padding: 5rem 5%;
+            background-color: var(--light-gray);
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .slide-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Slideshow navigation arrows */
+        .prev-button,
+        .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(104, 97, 86, 0.8);
+            color: var(--white);
+            border: none;
+            padding: 1rem 1.2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .prev-button:hover,
+        .next-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        /* Slideshow dot indicators */
+        .dots-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bbb;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--accent-color);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content {
+                transform: translateX(0);
+                max-width: 100%;
+                padding: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .slide img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <nav class="navbar">
+        <!-- Company logo - replace "DESERT RIDGE" text with an actual logo image if available -->
+        <a href="#home" class="logo">DESERT RIDGE</a>
+        
+        <!-- Navigation links to different sections -->
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero">
+        <!-- Offset text box with company description and CTA -->
+        <div class="hero-content">
+            <h1>Building Excellence in the Desert</h1>
+            <p>With over 20 years of experience, Desert Ridge Contracting delivers quality construction services that stand the test of time.</p>
+            <a href="#contact" class="cta-button">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US SECTION ==================== -->
+    <section id="about" class="why-choose">
+        <h2 class="section-title">Why Choose Desert Ridge?</h2>
+        
+        <div class="cards-container">
+            <!-- Card 1: Experience -->
+            <div class="card">
+                <div class="card-icon">⭐</div>
+                <h3>20+ Years Experience</h3>
+                <p>Our seasoned team brings decades of construction expertise to every project, ensuring quality craftsmanship and reliable results you can trust.</p>
+            </div>
+
+            <!-- Card 2: Quality -->
+            <div class="card">
+                <div class="card-icon">🏗️</div>
+                <h3>Quality Craftsmanship</h3>
+                <p>We use only the finest materials and proven construction techniques, delivering structures built to last for generations.</p>
+            </div>
+
+            <!-- Card 3: Service -->
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Customer Focused</h3>
+                <p>Your satisfaction is our priority. We maintain clear communication throughout your project and ensure every detail meets your vision.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT FORM SECTION ==================== -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <!-- Contact form - UI only, no backend functionality -->
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+
+    <!-- ==================== PROJECTS SLIDESHOW SECTION ==================== -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Our Projects</h2>
+        
+        <div class="slideshow-container">
+            <!-- Slide 1 - Replace image URLs with actual project photos -->
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=1200" alt="Commercial Building Project">
+                <div class="slide-caption">
+                    <h3>Downtown Commercial Center</h3>
+                    <p>50,000 sq ft mixed-use development</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200" alt="Residential Project">
+                <div class="slide-caption">
+                    <h3>Luxury Residential Complex</h3>
+                    <p>120-unit premium apartment community</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1541976590-713941681591?w=1200" alt="Industrial Project">
+                <div class="slide-caption">
+                    <h3>Industrial Warehouse Facility</h3>
+                    <p>200,000 sq ft distribution center</p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1200" alt="Office Building Project">
+                <div class="slide-caption">
+                    <h3>Corporate Headquarters</h3>
+                    <p>8-story Class A office building</p>
+                </div>
+            </div>
+
+            <!-- Navigation arrows -->
+            <button class="prev-button" onclick="changeSlide(-1)">❮</button>
+            <button class="next-button" onclick="changeSlide(1)">❯</button>
+        </div>
+
+        <!-- Dot indicators for slides -->
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Desert Ridge Contracting</strong></p>
+            <p>&copy; 2025 Desert Ridge Contracting. All rights reserved.</p>
+            
+            <!-- Social media placeholder links -->
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="LinkedIn">💼</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== SLIDESHOW FUNCTIONALITY ====================
+        
+        let currentSlideIndex = 0;
+        let slideInterval;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const slideshowContainer = document.querySelector('.slideshow-container');
+
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Wrap around if index is out of bounds
+            if (index >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (index < 0) {
+                currentSlideIndex = slides.length - 1;
+            } else {
+                currentSlideIndex = index;
+            }
+
+            // Hide all slides and deactivate all dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Show current slide and activate corresponding dot
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        // Function to change slide (called by prev/next buttons)
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+            resetAutoSlide(); // Reset auto-advance timer when manually navigating
+        }
+
+        // Function to jump to a specific slide (called by dots)
+        function currentSlide(index) {
+            showSlide(index);
+            resetAutoSlide(); // Reset auto-advance timer when clicking dots
+        }
+
+        // Function to auto-advance slides
+        function autoSlide() {
+            showSlide(currentSlideIndex + 1);
+        }
+
+        // Function to start auto-advance
+        function startAutoSlide() {
+            slideInterval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
+        }
+
+        // Function to reset auto-advance timer
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        // Pause slideshow on hover, resume on mouse leave
+        slideshowContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        slideshowContainer.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+
+        // Start the slideshow when page loads
+        startAutoSlide();
+
+        // ==================== CONTACT FORM HANDLING ====================
+        
+        const contactForm = document.getElementById('contactForm');
+
+        // Handle form submission (UI only - no backend)
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Display success message (in production, this would send to backend)
+            alert(`Thank you for your inquiry, ${name}! We'll contact you soon at ${email}.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // ==================== SMOOTH SCROLL ENHANCEMENT ====================
+        
+        // Add smooth scrolling for all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Offset for fixed navbar
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
